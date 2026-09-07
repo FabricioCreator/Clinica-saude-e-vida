@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+.header {
+    background: #0056b3;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.header nav a:hover,
+.header nav a.ativo {
+    color: #00d4ff;
+}
+
+/* Banner Hero */
+.hero, .hero-pagina {
+    background: linear-gradient(rgba(0,86,179,0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1, .hero-pagina h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero .btn, .hero-pagina .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #00d4ff;
+    color: #002b49;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.hero .btn:hover, .hero-pagina .btn:hover {
+    transform: translateY(-3px);
+    background: #00a3cc;
+}
+.container {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.bg-light {
+    background-color: #eef2f5;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.grid-cards, .grid-equipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card, .card-medico {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+}
+
+.card:hover, .card-medico:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card img, .card-medico img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: scale 0.3s;
+}
+
+.card:hover img, .card-medico:hover img {
+    scale: 1.05;
+}
+
+.card h3, .card-medico h3 {
+    margin: 15px 0 5px;
+    color: #0056b3;
+}
+
+.card p, .card-medico p {
+    padding: 0 15px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.link-detalhes, .btn-perfil {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00d4ff;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.card:hover .link-detalhes {
+    color: #0056b3;
+}
+
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.campo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.campo input:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.grupo-duplo {
+    display: flex;
+    gap: 15px;
+}
+
+.grupo-duplo .campo {
+    flex: 1;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+    background: #003d80;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+    background: white;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 10px;
+    position: relative;
+    animation: surgimento 0.4s ease;
+}
+
+@keyframes surgimento {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fechar {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.lista-medicos-detalhada {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cartao-biografia {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.foto-medico {
+    flex: 0 0 250px;
+    width: 250px;
+}
+
+.foto-medico img {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-medico {
+    flex: 1;
+    padding: 25px;
+    text-align: left;
+}
+
+.info-medico h2 {
+    text-align: left;
+}
+
+.especialidade {
+    color: #00d4ff;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.registro {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.info-medico hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 15px 0;
+}
+
+.info-medico h3 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.horario {
+    margin-top: 15px;
+    background: #eef2f5;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    color: #0056b3;
+}
+.conteudo-detalhado {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.conteudo-detalhado h2 {
+    text-align: left;
+}
+
+.conteudo-detalhado ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.bloco-dicas {
+    background: #f0f7ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #0056b3;
+    margin-top: 20px;
+}
+
+.bloco-dicas h2 {
+    text-align: left;
+    font-size: 1.3rem;
+}
+
+.grid-dicas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card-dica {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.card-dica h4 {
+    color: #0056b3;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .cartao-biografia {
+        flex-direction: column;
+    }
+    .foto-medico {
+        width: 100%;
+    }
+}

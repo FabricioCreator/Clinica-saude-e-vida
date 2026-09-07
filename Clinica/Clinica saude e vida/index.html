@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Saúde e Vida | Cuidado Integral</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">🏥 Saúde e Vida</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="equipe.html" class="ativo">Equipe Médica</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Sua Saúde em Primeiro Lugar</h1>
+        <p>Tecnologia, conforto e profissionais altamente qualificados para o seu bem-estar.</p>
+        <a href="equipe.html" class="btn">Conheça Nossa Equipe Médica</a>
+    </section>
+    <section id="servicos" class="container">
+        <h2>Nossos Serviços e Especialidades</h2>
+        <p class="subtitulo">Conheça os principais procedimentos que oferecemos.</p>
+        <div class="grid-cards">
+            <div class="card" onclick="abrirPagina('atendimento')">
+                <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=500&q=80" alt="Atendimento Médico">
+                <h3>👨‍⚕️ Atendimento Médico</h3>
+                <p>Consultas eletivas e de emergência em diversas especialidades médicas.</p>
+                <span class="link-detalhes"><a href="nutricao.html">Saber mais →</a></span>
+            </div>
+            <div class="card" onclick="abrirPagina('exames')">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=500&q=80" alt="Exames Laboratoriais">
+                <h3>🧪 Exames e Diagnósticos</h3>
+                <p>Laboratório próprio e equipamentos de imagem de última geração.</p>
+                <span class="link-detalhes"><a href="exame.html">Saber mais →</a></span>
+            </div>
+            <div class="card" onclick="abrirPagina('nutricao')">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=500&q=80" alt="Aconselhamento Nutricional">
+                <h3>🥗 Nutrição & Bem-Estar</h3>
+                <p>Planos alimentares personalizados para reeducação e performance.</p>
+                <span class="link-detalhes"><a href="nutricao.html">Saber mais →</a></span>
+            </div>
+        </div>
+    </section>
+    <div id="modal" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    <section id="contato" class="container bg-light">
+        <h2>Agende uma Visita ou Contate-nos</h2>
+        <form class="formulario" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso (Simulação estática)!');">
+            <div class="campo">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail de Contato:</label>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="grupo-duplo">
+                <div class="campo">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" placeholder="Ex: São Paulo" required>
+                </div>
+                <div class="campo">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" placeholder="Ex: SP" maxlength="2" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-enviar">Enviar Informações</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Clínica Saúde & Vida — Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
